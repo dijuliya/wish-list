@@ -2,10 +2,7 @@ package ru.itpark.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.itpark.entity.WishList;
 import ru.itpark.service.WishListService;
 
@@ -23,10 +20,32 @@ public class WishListController {
         this.service = service;
     }
 
-    @ApiOperation(value = "Get all", notes = "Get all wishList")
-    @RequestMapping(method = RequestMethod.GET)
+    @ApiOperation(value = "Get all in order", notes = "Get all wishList in order")
+    @GetMapping("/")
     public List<WishList> getAll() {
-        return service.findAllOrderByCountLikesDesc();
+        return service.findAllOrderByLikesDesc();
+
     }
+
+    @PostMapping("/")
+    public void save(@RequestBody WishList wishList) {
+        service.save(wishList);
+    }
+
+    @PostMapping("/{id}")
+    public void addLike(@RequestBody Integer id) {
+        service.addLike(id);
+    }
+
+    @DeleteMapping("/{id}/likes")
+    public void deleteLike(@PathVariable int id) {
+        service.deleteLike(id);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable int id) {
+        service.delete(id);
+    }
+
 
 }

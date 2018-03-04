@@ -18,6 +18,6 @@ public class WishList {
     private int id;
 
     private String name;
-    private String link;
-    private int countLikes;
+    private String description;
+    private int likes;
 }
