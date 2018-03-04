@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 @CrossOrigin
 @Api(description = "Work with wishList")
-@RequestMapping("/wishList")
+@RequestMapping("/wishes")
 public class WishListController {
     private final WishListService service;
 
@@ -21,18 +21,18 @@ public class WishListController {
     }
 
     @ApiOperation(value = "Get all in order", notes = "Get all wishList in order")
-    @GetMapping("/")
+    @GetMapping
     public List<WishList> getAll() {
-        return service.findAllOrderByLikesDesc();
+        return service.findAll();
 
     }
 
-    @PostMapping("/")
+    @PostMapping
     public void save(@RequestBody WishList wishList) {
         service.save(wishList);
     }
 
-    @PostMapping("/{id}")
+    @PostMapping("/{id}/likes")
     public void addLike(@RequestBody Integer id) {
         service.addLike(id);
     }

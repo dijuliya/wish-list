@@ -18,7 +18,7 @@ public interface WishListJpaRepository extends JpaRepository<WishList, Integer>{
 
     List<WishList> findAllByNameContainsIgnoreCase(String name);
 
-    List<WishList> findAllOrderByLikesDesc();
+    List<WishList> findAll();
 
     @Modifying
     @Transactional

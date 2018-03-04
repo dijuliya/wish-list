@@ -11,8 +11,8 @@ import ru.itpark.repository.WishListJpaRepository;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-public class EmTest {
-	@Autowired
+public class WishListApplicationTests {
+	/*@Autowired
 	private WishListJpaRepository repository;
 
 	@Test
@@ -43,5 +43,5 @@ public class EmTest {
 		{
 			Assertions.assertNull(repository.findById(1));
 		}
-	}
+	}*/
 }
