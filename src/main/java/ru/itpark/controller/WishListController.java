@@ -23,7 +23,7 @@ public class WishListController {
     @ApiOperation(value = "Get all in order", notes = "Get all wishList in order")
     @GetMapping
     public List<WishList> getAll() {
-        return service.findAll();
+        return service.findAllByOrderByLikes();
 
     }
 
