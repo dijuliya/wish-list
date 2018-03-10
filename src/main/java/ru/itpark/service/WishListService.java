@@ -16,8 +16,8 @@ public class WishListService {
         this.repository = repository;
     }
 
-    public List<WishList> findAllByOrderByLikes() {
-        return repository.findAllByOrderByLikes();
+    public List<WishList> findAllByOrderByLikesDesc() {
+        return repository.findAllByOrderByLikesDesc();
     }
 
     public void save(WishList wishList) {

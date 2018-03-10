@@ -23,7 +23,7 @@ public class WishListController {
     @ApiOperation(value = "Get all in order", notes = "Get all wishList in order")
     @GetMapping
     public List<WishList> getAll() {
-        return service.findAllByOrderByLikes();
+        return service.findAllByOrderByLikesDesc();
 
     }
 
@@ -33,7 +33,7 @@ public class WishListController {
     }
 
     @PostMapping("/{id}/likes")
-    public void addLike(@RequestBody Integer id) {
+    public void addLike(@RequestBody int id) {
         service.addLike(id);
     }
 
